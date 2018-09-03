@@ -24,8 +24,8 @@ public class CadastroUsuario implements CadastroUsuarioInt{
     
      
     @Override
-    public boolean autentica() {
-        return true;
+    public boolean autentica(String email, String senha){
+        return listaFuncionario.stream().anyMatch((f) -> (f.getEmailAcesso().equals(email) && f.getSenhaAcesso().equals(senha)));
     }
 
     @Override
@@ -55,10 +55,12 @@ public class CadastroUsuario implements CadastroUsuarioInt{
 
     @Override
     public boolean excluir(String cpf) {
-        for(Funcionario f : listaFuncionario){
-            if(f.getCpf().equals(cpf)){
-                listaFuncionario.remove(f);
-                return true;
+        if(existe(cpf)){
+            for(Funcionario f : listaFuncionario){
+                if(f.getCpf().equals(cpf)){
+                    listaFuncionario.remove(f);
+                    return true;
+                }
             }
         }
         return false;
@@ -68,7 +70,7 @@ public class CadastroUsuario implements CadastroUsuarioInt{
         return listaFuncionario;
     }
     
-    public Funcionario buscar(String cpf) {
+    /*public Funcionario buscar(String cpf) {
      boolean naoFiltrarCpf = (cpf == null || cpf.trim().isEmpty());
 
      for (Funcionario f : listaFuncionario) {
@@ -77,13 +79,10 @@ public class CadastroUsuario implements CadastroUsuarioInt{
           }
      }
      return null;
-}
+    }*/
     
     public boolean existe(String cpf){
-        if (this.listaFuncionario.contains(cpf)) {
-            return false;
-        }
-        return true;
+        return this.listaFuncionario.stream().anyMatch((f) -> (f.getCpf().equals(cpf)));
     }
     
 }
