@@ -1,4 +1,4 @@
-package lanchonete;
+package Model;
 
 import java.util.Objects;
 

@@ -3,35 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lanchonete;
+package Model;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 /**
  *
  * @author Administrador
  */
-public class Gerencia {
-    private List<Comanda> comandas;
+public class Cozinha {
+    private List<Pedido> pedidos;
 
-    public Gerencia(List<Comanda> comandas) {
-        this.comandas = new ArrayList<>();
+    public Cozinha(List<Pedido> pedidos) {
+        this.pedidos = new ArrayList<>();
     }
 
-    public List<Comanda> getComandas() {
-        return comandas;
+    public List<Pedido> getPedidos() {
+        return pedidos;
     }
 
-    public void setComandas(List<Comanda> comandas) {
-        this.comandas = comandas;
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.comandas);
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.pedidos);
         return hash;
     }
 
@@ -46,8 +45,8 @@ public class Gerencia {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Gerencia other = (Gerencia) obj;
-        if (!Objects.equals(this.comandas, other.comandas)) {
+        final Cozinha other = (Cozinha) obj;
+        if (!Objects.equals(this.pedidos, other.pedidos)) {
             return false;
         }
         return true;
@@ -55,8 +54,10 @@ public class Gerencia {
 
     @Override
     public String toString() {
-        return "Gerencia{" + "comandas=" + comandas + '}';
+        return "Cozinha{" + "pedidos=" + pedidos + '}';
     }
+    
+    
     
     
 }

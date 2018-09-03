@@ -1,4 +1,4 @@
-package lanchonete;
+package Model;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -12,14 +12,14 @@ public class Pedido {
     private Produto produto;
     private LocalDate data;
     private LocalDate hora;
-    private float total;
+    private int quantidade;
     private boolean estado;
 
-    public Pedido(Produto produto, LocalDate data, LocalDate hora, float total, boolean estado) {
+    public Pedido(Produto produto, LocalDate data, LocalDate hora, int quantidade, boolean estado) {
         this.produto = produto;
         this.data = data;
         this.hora = hora;
-        this.total = total;
+        this.quantidade = quantidade;
         this.estado = estado;
     }
 
@@ -47,12 +47,12 @@ public class Pedido {
         this.hora = hora;
     }
 
-    public float getTotal() {
-        return total;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setTotal(float total) {
-        this.total = total;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public boolean isEstado() {
@@ -69,7 +69,7 @@ public class Pedido {
         hash = 79 * hash + Objects.hashCode(this.produto);
         hash = 79 * hash + Objects.hashCode(this.data);
         hash = 79 * hash + Objects.hashCode(this.hora);
-        hash = 79 * hash + Float.floatToIntBits(this.total);
+        hash = 79 * hash + Float.floatToIntBits(this.quantidade);
         hash = 79 * hash + (this.estado ? 1 : 0);
         return hash;
     }
@@ -86,7 +86,7 @@ public class Pedido {
             return false;
         }
         final Pedido other = (Pedido) obj;
-        if (Float.floatToIntBits(this.total) != Float.floatToIntBits(other.total)) {
+        if (Float.floatToIntBits(this.quantidade) != Float.floatToIntBits(other.quantidade)) {
             return false;
         }
         if (this.estado != other.estado) {
@@ -106,7 +106,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "produto=" + produto + ", data=" + data + ", hora=" + hora + ", total=" + total + ", estado=" + estado + '}';
+        return "Pedido{" + "produto=" + produto + ", data=" + data + ", hora=" + hora + ", quantidade=" + quantidade + ", estado=" + estado + '}';
     }
     
     

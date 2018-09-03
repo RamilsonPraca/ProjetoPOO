@@ -1,9 +1,8 @@
-package lanchonete;
+package Model;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 /**
  *
  * @author Administrador
@@ -11,18 +10,30 @@ import java.util.Objects;
 public class Comanda {
     
     private List<Pedido> pedidos;
+    private int numeroMesa;
 
-    public Comanda() {
+    public Comanda(List<Pedido> pedidos, int numeroMesa) {
         this.pedidos = new ArrayList<>();
+        this.numeroMesa = numeroMesa;
     }
 
     public List<Pedido> getPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(Pedido pedido) {
-        this.pedidos.add(pedido);
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
+
+    public int getNumeroMesa() {
+        return numeroMesa;
+    }
+
+    public void setNumeroMesa(int numeroMesa) {
+        this.numeroMesa = numeroMesa;
+    }
+
+    
 
     @Override
     public int hashCode() {
