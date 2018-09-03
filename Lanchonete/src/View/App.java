@@ -74,10 +74,10 @@ public class App {
             if ("editar".equals(editar)) {
                 
                 System.out.println("Insira o cpf do funcionario que deseja atualizar: ");
-                String velhoCpf = entrada.next();
+                String cpfAntigo = entrada.next();
                 //verificando se existe algum funcionario com esse cpf.
-                if (c1.existe(velhoCpf) == true){
-                System.out.println("Atualize o funcionário! Insira os dados... ");
+                if (c1.existe(cpfAntigo) == true){
+                System.out.println("Digite os dados");
                 System.out.println("Nome: ");
                 String nome2 = entrada.next();
                 System.out.println("Cpf: ");
@@ -87,7 +87,7 @@ public class App {
                 System.out.println("Senha: ");
                 String senhaAcesso2 = entrada.next();
                 Funcionario f2 = new Funcionario(nome2, cpf2, emailAcesso2, senhaAcesso2);
-                c1.editar(f2, velhoCpf);
+                c1.editar(f2, cpfAntigo);
                 System.out.println("Editado com sucesso");
                 } else {
                     System.out.println("Funcionário inexistente");
