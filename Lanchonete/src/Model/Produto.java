@@ -8,23 +8,23 @@ import java.util.Objects;
  */
 public class Produto {
     
-    private int codigo;
+    private String codigo;
     private String descricao;
     private String nome;
     private float valorUnitario;
 
-    public Produto(int codigo, String descricao, String nome, float valorUnitario) {
+    public Produto(String codigo, String descricao, String nome, float valorUnitario) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.nome = nome;
         this.valorUnitario = valorUnitario;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -55,10 +55,7 @@ public class Produto {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + this.codigo;
-        hash = 67 * hash + Objects.hashCode(this.descricao);
-        hash = 67 * hash + Objects.hashCode(this.nome);
-        hash = 67 * hash + Float.floatToIntBits(this.valorUnitario);
+        hash = 11 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
@@ -73,21 +70,20 @@ public class Produto {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Produto other = (Produto) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (Float.floatToIntBits(this.valorUnitario) != Float.floatToIntBits(other.valorUnitario)) {
-            return false;
-        }
-        if (!Objects.equals(this.descricao, other.descricao)) {
-            return false;
-        }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
+        Produto outro = (Produto) obj;
+        if (codigo == null) {
+            if (outro.codigo != null) {
+                return false;
+            } else if (!codigo.equals(outro.codigo)) {
+                return true;
+            }
         }
         return true;
     }
+
+   
+
+    
 
     @Override
     public String toString() {

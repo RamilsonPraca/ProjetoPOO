@@ -5,13 +5,16 @@
  */
 package Controle;
 
+import Model.Produto;
+
 /**
  *
  * @author Administrador
  */
 public interface CadastroProdutoInt {
     public boolean salvar(Produto produto);
-    public boolean editar(Produto produto, String cpf);
-    public boolean excluir(int codigo);
+    public boolean editar(Produto produto, String codigo);
+    public boolean excluir(String codigo);
+    public boolean existe(String codigo);
     
 }
