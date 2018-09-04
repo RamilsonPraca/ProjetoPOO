@@ -13,16 +13,16 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Funcionario admin = new Funcionario("Ramiz", "111.111.111-1", "ramiz@gmail.com", "1234");
-        Funcionario admin2 = new Funcionario("Amilton", "222-222-222-22", "amilton@gmail.com", "1234");
+        Funcionario exemplo = new Funcionario("Ramiz", "111.111.111-1", "ramiz@gmail.com", "1234");
+        Funcionario exemplo2 = new Funcionario("Amilton", "222-222-222-22", "amilton@gmail.com", "1234");
         CadastroUsuario u1 = new CadastroUsuario();
-        u1.salvar(admin2);
-        u1.salvar(admin);
+        u1.salvar(exemplo);
+        u1.salvar(exemplo2);
         
         CadastroProduto p1 = new CadastroProduto();
 
         Scanner entrada = new Scanner(System.in);
-        //login. Iniciando Sistema.
+
         System.out.println("Digite o email:");
         String email = entrada.next();
         System.out.println("Digite a senha:");
