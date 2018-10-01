@@ -1,7 +1,7 @@
 package View;
 
-import Controle.CadastroProduto;
-import Controle.CadastroUsuario;
+import Control.ProdutoDaoImp;
+import Control.UsuarioDaoImp;
 import Model.Funcionario;
 import Model.Produto;
 import java.util.Scanner;
@@ -13,13 +13,13 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        Funcionario exemplo = new Funcionario("Ramiz", "111.111.111-1", "ramiz@gmail.com", "1234");
-        Funcionario exemplo2 = new Funcionario("Amilton", "222-222-222-22", "amilton@gmail.com", "1234");
-        CadastroUsuario u1 = new CadastroUsuario();
+        Funcionario exemplo = new Funcionario("Ramiz", "111.111.111-1", "ramiz@gmail.com", "1234", "11111-1111", "Gerencia");
+        Funcionario exemplo2 = new Funcionario("Amilton", "222-222-222-22", "amilton@gmail.com", "1234", "22222-2222", "Gerencia");
+        UsuarioDaoImp u1 = new UsuarioDaoImp();
         u1.salvar(exemplo);
         u1.salvar(exemplo2);
         
-        CadastroProduto p1 = new CadastroProduto();
+        ProdutoDaoImp p1 = new ProdutoDaoImp();
 
         Scanner entrada = new Scanner(System.in);
 
@@ -60,7 +60,11 @@ public class App {
                                     String emailAcesso = entrada.next();
                                     System.out.println("Senha: ");
                                     String senhaAcesso = entrada.next();
-                                    Funcionario funcionario = new Funcionario(nome, cpf, emailAcesso, senhaAcesso); 
+                                    System.out.println("Telefone: ");
+                                    String telefone = entrada.next();
+                                    System.out.println("setor: ");
+                                    String setor = entrada.next();
+                                    Funcionario funcionario = new Funcionario(nome, cpf, emailAcesso, senhaAcesso, telefone, setor); 
          
                                     if (u1.salvar(funcionario) == true) {
                                     System.out.println("funcionario Adicionado com sucesso");
@@ -82,7 +86,11 @@ public class App {
                                     String emailAcesso2 = entrada.next();
                                     System.out.println("Senha: ");
                                     String senhaAcesso2 = entrada.next();
-                                    Funcionario f2 = new Funcionario(nome2, cpf2, emailAcesso2, senhaAcesso2);
+                                    System.out.println("Telefone: ");
+                                    String telefone2 = entrada.next();
+                                    System.out.println("setor: ");
+                                    String setor2 = entrada.next();
+                                    Funcionario f2 = new Funcionario(nome2, cpf2, emailAcesso2, senhaAcesso2, telefone2, setor2);
                                     u1.editar(f2, cpfAntigo);
                                     System.out.println("Editado com sucesso");
                                     } else {

@@ -17,11 +17,12 @@ public class Cardapio {
     }
 
     public List<Produto> getProdutos() {
+        if(produtos == null) produtos = new ArrayList<>();
         return produtos;
     }
 
-    public void setProdutos(Produto produto) {
-        this.produtos.add(produto);
+    public void setProdutos(List<Produto> produto) {
+        this.produtos = produto;
     }
 
     @Override

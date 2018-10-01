@@ -15,12 +15,12 @@ public class Pedido {
     private int quantidade;
     private boolean estado;
 
-    public Pedido(Produto produto, LocalDate data, LocalDate hora, int quantidade, boolean estado) {
+    public Pedido(Produto produto, LocalDate data, LocalDate hora, int quantidade) {
         this.produto = produto;
         this.data = data;
         this.hora = hora;
         this.quantidade = quantidade;
-        this.estado = estado;
+        this.estado = false;
     }
 
     public Produto getProduto() {
